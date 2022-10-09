@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap");
 :root {
-  --white: hsl(0, 0%, 100%);
+  --white: white;
   --light-grey: hsl(217, 12%, 63%);
   --medium-grey: hsl(216, 10%, 30%);
   --dark-blue: hsl(213, 19%, 18%);
@@ -55,13 +55,13 @@ body {
   line-height: 23px;
 }
 
-.num {
+#num {
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
 
-.num span {
+#num div label {
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -73,14 +73,27 @@ body {
   transition: 200ms;
 }
 
-.num span:hover {
+#num div label:hover {
   background: var(--light-grey);
   color: var(--white);
 }
 
-.num span:active {
+#num div label:active {
   background: var(--orange);
   color: var(--white);
+}
+
+#num div input {
+  content: "1";
+}
+
+#num > div input:checked ~ label {
+  background: var(--orange);
+  color: var(--white);
+}
+
+#num > div input:not(:checked) ~ label {
+  background: var(--medium-grey);
 }
 
 button {
@@ -101,7 +114,8 @@ button:hover {
   background: var(--dark-orange);
 }
 
-button:active {
+button:active,
+button:checked {
   color: var(--orange);
   background: var(--white);
 }
