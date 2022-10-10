@@ -96,6 +96,10 @@ body {
   background: var(--medium-grey);
 }
 
+#num > div input:not(:checked) ~ label:hover {
+  background: var(--light-grey);
+}
+
 button {
   margin-top: 10px;
   border: none;
